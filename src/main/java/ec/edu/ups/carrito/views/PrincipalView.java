@@ -5,6 +5,8 @@
 package ec.edu.ups.carrito.views;
 
 import ec.edu.ups.carrito.controllers.ProductoController;
+import ec.edu.ups.carrito.dao.ProductoDAO;
+import ec.edu.ups.carrito.dao.ProductoDAOMemoria;
 
 /**
  *
@@ -17,11 +19,21 @@ public class PrincipalView extends javax.swing.JFrame {
     private EliminarProductoView eliminarProductoView;
     private ActualizarProductoView actualizarProductoView;
     private BuscarProductoView buscarProductoView;
+    private ProductoDAO productoDAO;
 
     /**
      * Creates new form PrincipalView
      */
     public PrincipalView() {
+
+        crearProductoView = new CrearProductoView();
+        buscarProductoView = new BuscarProductoView();
+        actualizarProductoView = new ActualizarProductoView();
+        eliminarProductoView = new EliminarProductoView();
+        
+        productoDAO = new ProductoDAOMemoria();
+        productoController = new ProductoController(crearProductoView, productoDAO);
+
         initComponents();
     }
 
@@ -132,9 +144,8 @@ public class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_agregarProductoCarritoMenuItemActionPerformed
 
     private void crearProductoMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearProductoMenuItemActionPerformed
-        if (crearProductoView == null || !crearProductoView.isVisible()) {
-            crearProductoView = new CrearProductoView();
-            productoController = new ProductoController(crearProductoView);
+        if (!crearProductoView.isVisible()) {
+            desktopPane.remove(crearProductoView);
             crearProductoView.setVisible(true);
             desktopPane.add(crearProductoView);
         }

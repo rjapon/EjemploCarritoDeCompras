@@ -4,6 +4,7 @@
  */
 package ec.edu.ups.carrito.controllers;
 
+import ec.edu.ups.carrito.dao.ProductoDAO;
 import ec.edu.ups.carrito.models.Producto;
 import ec.edu.ups.carrito.views.CrearProductoView;
 import java.awt.event.ActionEvent;
@@ -14,35 +15,46 @@ import java.awt.event.ActionListener;
  * @author Asus
  */
 public class ProductoController {
-    
-    private Producto producto;
+
+    private ProductoDAO productoDAO;
     private CrearProductoView crearProductoView;
 
-    public ProductoController(CrearProductoView crearProductoView) {
+    public ProductoController(CrearProductoView crearProductoView, ProductoDAO productoDAO) {
         this.crearProductoView = crearProductoView;
+        this.productoDAO = productoDAO;
         configurarEventosCrearProducto();
     }
-    
-    public void crearProducto(){
-        
+
+    public void crearProducto() {
+
         int codigo = Integer.parseInt(crearProductoView.getTxtCodigo().getText());
         String nombre = crearProductoView.getTxtNombre().getText();
         double precio = Double.parseDouble(crearProductoView.getTxtPrecio().getText());
-        
-        producto = new Producto(codigo, nombre, precio);
-        
+
+        Producto producto = new Producto(codigo, nombre, precio);
+        productoDAO.crear(producto);
+
+        crearProductoView.mostrarInformacion("Producto creado exitosamente");
         System.out.println("Producto creado exitosamente");
-        
+
     }
-    
-    public void configurarEventosCrearProducto(){        
+
+    public void buscarProducto() {
+
+        int codigo = Integer.parseInt(crearProductoView.getTxtCodigo().getText());
+        if(productoDAO.buscar(codigo) != null){
+            txt
+        }
+
+    }
+
+    public void configurarEventosCrearProducto() {
         crearProductoView.getBtnAceptar().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("AAA");
                 crearProducto();
-            }   
-        });  
+            }
+        });
     }
-    
+
 }
