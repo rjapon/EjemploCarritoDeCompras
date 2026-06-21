@@ -61,19 +61,19 @@
                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblCodigoEliminarProducto" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblCodigoProducto" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="txtCodigoEliminarProducto" min="-2" pref="105" max="-2" attributes="0"/>
+                                  <Component id="txtCodigoProducto" min="-2" pref="105" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnBuscarProducto" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="lblPrecioEliminarProducto" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblPrecioProducto" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblNombreEliminarProducto" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNombreProducto" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="txtPrecioProducto" pref="92" max="32767" attributes="0"/>
-                                      <Component id="txtNombreEliminarProducto" max="32767" attributes="0"/>
+                                      <Component id="txtNombreProducto" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -94,19 +94,19 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblCodigoEliminarProducto" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtCodigoEliminarProducto" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblCodigoProducto" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtCodigoProducto" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnBuscarProducto" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblNombreEliminarProducto" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtNombreEliminarProducto" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblNombreProducto" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtNombreProducto" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="txtPrecioProducto" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblPrecioEliminarProducto" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblPrecioProducto" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -119,22 +119,22 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="lblCodigoEliminarProducto">
+        <Component class="javax.swing.JLabel" name="lblCodigoProducto">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ingrese el codido del producto"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtCodigoEliminarProducto">
+        <Component class="javax.swing.JTextField" name="txtCodigoProducto">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCodigoEliminarProductoActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCodigoProductoActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblNombreEliminarProducto">
+        <Component class="javax.swing.JLabel" name="lblNombreProducto">
           <Properties>
             <Property name="text" type="java.lang.String" value="Nombre del producto:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtNombreEliminarProducto">
+        <Component class="javax.swing.JTextField" name="txtNombreProducto">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
           </Properties>
@@ -147,7 +147,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPrecioProductoActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblPrecioEliminarProducto">
+        <Component class="javax.swing.JLabel" name="lblPrecioProducto">
           <Properties>
             <Property name="text" type="java.lang.String" value="Precio:"/>
           </Properties>
@@ -168,10 +168,13 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelarActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="btnBuscarProducto">
           <Properties>
             <Property name="text" type="java.lang.String" value="Buscar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarProductoActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

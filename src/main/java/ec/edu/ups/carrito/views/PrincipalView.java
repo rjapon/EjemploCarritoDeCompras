@@ -20,6 +20,7 @@ public class PrincipalView extends javax.swing.JFrame {
     private ActualizarProductoView actualizarProductoView;
     private BuscarProductoView buscarProductoView;
     private ProductoDAO productoDAO;
+    private ListarProductosView listarProductosView;
 
     /**
      * Creates new form PrincipalView
@@ -30,9 +31,11 @@ public class PrincipalView extends javax.swing.JFrame {
         buscarProductoView = new BuscarProductoView();
         actualizarProductoView = new ActualizarProductoView();
         eliminarProductoView = new EliminarProductoView();
-        
+
         productoDAO = new ProductoDAOMemoria();
-        productoController = new ProductoController(crearProductoView, productoDAO);
+        productoController = new ProductoController(crearProductoView, buscarProductoView, actualizarProductoView, eliminarProductoView, productoDAO);
+
+        listarProductosView = new ListarProductosView();
 
         initComponents();
     }
@@ -56,6 +59,7 @@ public class PrincipalView extends javax.swing.JFrame {
         buscarProductoMenuItem = new javax.swing.JMenuItem();
         eliminarProductoMenuItem = new javax.swing.JMenuItem();
         actualizarProductoMenuItem = new javax.swing.JMenuItem();
+        listarProductosMenuItem = new javax.swing.JMenuItem();
         carritoMenu = new javax.swing.JMenu();
         agregarProductoCarritoMenuItem = new javax.swing.JMenuItem();
         eliminarProductoCarritoMenuItem = new javax.swing.JMenuItem();
@@ -91,6 +95,11 @@ public class PrincipalView extends javax.swing.JFrame {
         actualizarProductoMenuItem.addActionListener(this::actualizarProductoMenuItemActionPerformed);
         productoMenu.add(actualizarProductoMenuItem);
 
+        listarProductosMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        listarProductosMenuItem.setText("Listar");
+        listarProductosMenuItem.addActionListener(this::listarProductosMenuItemActionPerformed);
+        productoMenu.add(listarProductosMenuItem);
+
         menuBar.add(productoMenu);
 
         carritoMenu.setMnemonic('e');
@@ -124,19 +133,27 @@ public class PrincipalView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void actualizarProductoMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarProductoMenuItemActionPerformed
-        if (actualizarProductoView == null || !actualizarProductoView.isVisible()) {
-            actualizarProductoView = new ActualizarProductoView();
+
+        if (!actualizarProductoView.isVisible()) {
+            
+            desktopPane.remove(actualizarProductoView);
             actualizarProductoView.setVisible(true);
             desktopPane.add(actualizarProductoView);
+            
         }
+
     }//GEN-LAST:event_actualizarProductoMenuItemActionPerformed
 
     private void buscarProductoMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarProductoMenuItemActionPerformed
-        if (buscarProductoView == null || !buscarProductoView.isVisible()) {
-            buscarProductoView = new BuscarProductoView();
+
+        if (!buscarProductoView.isVisible()) {
+
+            desktopPane.remove(buscarProductoView);
             buscarProductoView.setVisible(true);
             desktopPane.add(buscarProductoView);
+
         }
+
     }//GEN-LAST:event_buscarProductoMenuItemActionPerformed
 
     private void agregarProductoCarritoMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarProductoCarritoMenuItemActionPerformed
@@ -152,12 +169,24 @@ public class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_crearProductoMenuItemActionPerformed
 
     private void eliminarProductoMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarProductoMenuItemActionPerformed
-        if (eliminarProductoView == null || !eliminarProductoView.isVisible()) {
-            eliminarProductoView = new EliminarProductoView();
+
+        if(!eliminarProductoView.isVisible()){
+            desktopPane.remove(eliminarProductoView);
             eliminarProductoView.setVisible(true);
             desktopPane.add(eliminarProductoView);
         }
+        
     }//GEN-LAST:event_eliminarProductoMenuItemActionPerformed
+
+    private void listarProductosMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarProductosMenuItemActionPerformed
+
+        if (!listarProductosView.isVisible()) {
+            desktopPane.remove(listarProductosView);
+            listarProductosView.setVisible(true);
+            desktopPane.add(listarProductosView);
+        }
+
+    }//GEN-LAST:event_listarProductosMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -206,6 +235,7 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem listarProductosMenuItem;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu productoMenu;
     // End of variables declaration//GEN-END:variables

@@ -61,4 +61,11 @@ public class ProductoDAOMemoria implements ProductoDAO {
 
     }
 
+    @Override
+    public List<Producto> listar() {
+
+        return lista;
+        
+    }
+
 }

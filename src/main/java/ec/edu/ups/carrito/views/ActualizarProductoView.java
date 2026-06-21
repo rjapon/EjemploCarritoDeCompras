@@ -4,6 +4,10 @@
  */
 package ec.edu.ups.carrito.views;
 
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Asus
@@ -17,6 +21,50 @@ public class ActualizarProductoView extends javax.swing.JInternalFrame {
         initComponents();
     }
 
+    public JButton getBtnAceptar() {
+        return btnAceptar;
+    }
+
+    public void setBtnAceptar(JButton btnAceptar) {
+        this.btnAceptar = btnAceptar;
+    }
+
+    public JButton getBtnBuscar() {
+        return btnBuscar;
+    }
+
+    public void setBtnBuscar(JButton btnBuscar) {
+        this.btnBuscar = btnBuscar;
+    }
+
+    public JTextField getTxtActualizarNombre() {
+        return txtActualizarNombre;
+    }
+
+    public void setTxtActualizarNombre(JTextField txtActualizarNombre) {
+        this.txtActualizarNombre = txtActualizarNombre;
+    }
+
+    public JTextField getTxtActualizarPrecio() {
+        return txtActualizarPrecio;
+    }
+
+    public void setTxtActualizarPrecio(JTextField txtActualizarPrecio) {
+        this.txtActualizarPrecio = txtActualizarPrecio;
+    }
+
+    public JTextField getTxtCodigoProducto() {
+        return txtCodigoProducto;
+    }
+
+    public void setTxtCodigoProducto(JTextField txtCodigoProducto) {
+        this.txtCodigoProducto = txtCodigoProducto;
+    }
+
+    public void mostrarInformacion(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,13 +76,14 @@ public class ActualizarProductoView extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         lblActualizarProducto = new javax.swing.JLabel();
-        txtActualizarProduct = new javax.swing.JTextField();
+        txtCodigoProducto = new javax.swing.JTextField();
         lblActualizarPrecio = new javax.swing.JLabel();
         lblActualizarNombre = new javax.swing.JLabel();
         txtActualizarPrecio = new javax.swing.JTextField();
         txtActualizarNombre = new javax.swing.JTextField();
         btnAceptar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -57,6 +106,8 @@ public class ActualizarProductoView extends javax.swing.JInternalFrame {
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(this::btnCancelarActionPerformed);
 
+        btnBuscar.setText("Buscar");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -76,11 +127,14 @@ public class ActualizarProductoView extends javax.swing.JInternalFrame {
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnCancelar)
-                    .addComponent(txtActualizarProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(txtCodigoProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnBuscar))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(txtActualizarNombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
                         .addComponent(txtActualizarPrecio, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,8 +142,9 @@ public class ActualizarProductoView extends javax.swing.JInternalFrame {
                 .addGap(16, 16, 16)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblActualizarProducto)
-                    .addComponent(txtActualizarProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
+                    .addComponent(txtCodigoProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscar))
+                .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtActualizarPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblActualizarPrecio))
@@ -136,6 +191,7 @@ public class ActualizarProductoView extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblActualizarNombre;
@@ -143,6 +199,6 @@ public class ActualizarProductoView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblActualizarProducto;
     private javax.swing.JTextField txtActualizarNombre;
     private javax.swing.JTextField txtActualizarPrecio;
-    private javax.swing.JTextField txtActualizarProduct;
+    private javax.swing.JTextField txtCodigoProducto;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,6 +4,13 @@
  */
 package ec.edu.ups.carrito.views;
 
+import ec.edu.ups.carrito.controllers.ProductoController;
+
+import ec.edu.ups.carrito.models.Producto;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Asus
@@ -15,6 +22,42 @@ public class BuscarProductoView extends javax.swing.JInternalFrame {
      */
     public BuscarProductoView() {
         initComponents();
+    }
+
+    public JButton getBtnBuscar() {
+        return btnBuscar;
+    }
+
+    public void setBtnBuscar(JButton btnBuscar) {
+        this.btnBuscar = btnBuscar;
+    }
+
+    public JTextField getTxtCodigoProducto() {
+        return txtCodigoProducto;
+    }
+
+    public void setTxtCodigoProducto(JTextField txtCodigoProducto) {
+        this.txtCodigoProducto = txtCodigoProducto;
+    }
+
+    public JTextField getTxtNombreProducto() {
+        return txtNombreProducto;
+    }
+
+    public void setTxtNombreProducto(JTextField txtNombreProducto) {
+        this.txtNombreProducto = txtNombreProducto;
+    }
+
+    public JTextField getTxtPrecioProducto() {
+        return txtPrecioProducto;
+    }
+
+    public void setTxtPrecioProducto(JTextField txtPrecioProducto) {
+        this.txtPrecioProducto = txtPrecioProducto;
+    }
+
+    public void mostrarInformacion(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje);
     }
 
     /**
@@ -137,7 +180,8 @@ public class BuscarProductoView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
+
+
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void txtNombreProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreProductoActionPerformed
