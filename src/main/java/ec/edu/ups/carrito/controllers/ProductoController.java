@@ -11,10 +11,14 @@ import ec.edu.ups.carrito.views.CrearProductoView;
 import ec.edu.ups.carrito.views.BuscarProductoView;
 import ec.edu.ups.carrito.views.ActualizarProductoView;
 import ec.edu.ups.carrito.views.EliminarProductoView;
+import ec.edu.ups.carrito.views.ListarProductosView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.event.InternalFrameAdapter;
+import javax.swing.event.InternalFrameEvent;
 
 /**
  *
@@ -28,11 +32,15 @@ public class ProductoController {
     private EliminarProductoView eliminarProductoView;
     private ActualizarProductoView actualizarProductoView;
 
-    public ProductoController(CrearProductoView crearProductoView, BuscarProductoView buscarProductoView, ActualizarProductoView actualizarProductoView, EliminarProductoView eliminarProductoView, ProductoDAO productoDAO) {
+    private ListarProductosView listarProductosView;
+
+    public ProductoController(ListarProductosView listarProductosView, CrearProductoView crearProductoView, BuscarProductoView buscarProductoView, ActualizarProductoView actualizarProductoView, EliminarProductoView eliminarProductoView, ProductoDAO productoDAO) {
         this.buscarProductoView = buscarProductoView;
         this.crearProductoView = crearProductoView;
         this.actualizarProductoView = actualizarProductoView;
         this.eliminarProductoView = eliminarProductoView;
+
+        this.listarProductosView = listarProductosView;
 
         this.productoDAO = productoDAO;
 
@@ -40,6 +48,7 @@ public class ProductoController {
         configurarEventosBuscarProducto();
         configurarEventosEliminarProducto();
         configurarEventosActualizarProducto();
+        configurarEventosListarProductos();
     }
 
     public void crearProducto() {
@@ -149,7 +158,7 @@ public class ProductoController {
             productoActualizado.setNombre(nombre);
             productoActualizado.setPrecio(precio);
             productoDAO.actualizar(codigo, productoActualizado);
-            
+
             actualizarProductoView.mostrarInformacion("Producto actualizado");
 
         }
@@ -157,13 +166,13 @@ public class ProductoController {
     }
 
     private void buscarActualizarProducto() {
-        
+
         Producto productoEncontrado = productoDAO.buscar(Integer.parseInt(actualizarProductoView.getTxtCodigoProducto().getText()));
 
         if (productoEncontrado != null) {
-            
+
             actualizarProductoView.getTxtActualizarNombre().setText(productoEncontrado.getNombre());
-            actualizarProductoView.getTxtActualizarPrecio().setText(String.valueOf(productoEncontrado.getPrecio()));       
+            actualizarProductoView.getTxtActualizarPrecio().setText(String.valueOf(productoEncontrado.getPrecio()));
 
         } else {
             actualizarProductoView.mostrarInformacion("No se encontro el producto");
@@ -188,4 +197,30 @@ public class ProductoController {
 
         });
     }
+
+    public void listarProductos() {
+
+        List<Producto> lista = productoDAO.listar();
+        listarProductosView.cargarDatos(lista);
+
+    }
+
+    public void configurarEventosListarProductos() {
+
+        listarProductosView.addInternalFrameListener(new InternalFrameAdapter() {
+            @Override
+                    public void internalFrameActivated(InternalFrameEvent e) {
+                listarProductos();
+            }
+        });
+
+        listarProductosView.getBtnListar().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                listarProductos();
+            }
+        });
+
+    }
+
 }

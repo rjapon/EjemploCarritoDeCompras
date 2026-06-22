@@ -31,11 +31,10 @@ public class PrincipalView extends javax.swing.JFrame {
         buscarProductoView = new BuscarProductoView();
         actualizarProductoView = new ActualizarProductoView();
         eliminarProductoView = new EliminarProductoView();
+        listarProductosView = new ListarProductosView();
 
         productoDAO = new ProductoDAOMemoria();
-        productoController = new ProductoController(crearProductoView, buscarProductoView, actualizarProductoView, eliminarProductoView, productoDAO);
-
-        listarProductosView = new ListarProductosView();
+        productoController = new ProductoController(listarProductosView, crearProductoView, buscarProductoView, actualizarProductoView, eliminarProductoView, productoDAO);
 
         initComponents();
     }
@@ -135,11 +134,11 @@ public class PrincipalView extends javax.swing.JFrame {
     private void actualizarProductoMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarProductoMenuItemActionPerformed
 
         if (!actualizarProductoView.isVisible()) {
-            
+
             desktopPane.remove(actualizarProductoView);
             actualizarProductoView.setVisible(true);
             desktopPane.add(actualizarProductoView);
-            
+
         }
 
     }//GEN-LAST:event_actualizarProductoMenuItemActionPerformed
@@ -170,12 +169,12 @@ public class PrincipalView extends javax.swing.JFrame {
 
     private void eliminarProductoMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarProductoMenuItemActionPerformed
 
-        if(!eliminarProductoView.isVisible()){
+        if (!eliminarProductoView.isVisible()) {
             desktopPane.remove(eliminarProductoView);
             eliminarProductoView.setVisible(true);
             desktopPane.add(eliminarProductoView);
         }
-        
+
     }//GEN-LAST:event_eliminarProductoMenuItemActionPerformed
 
     private void listarProductosMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarProductosMenuItemActionPerformed
