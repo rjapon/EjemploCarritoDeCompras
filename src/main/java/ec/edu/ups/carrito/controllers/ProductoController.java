@@ -205,6 +205,7 @@ public class ProductoController {
 
     }
 
+    // Lista
     public void configurarEventosListarProductos() {
 
         listarProductosView.addInternalFrameListener(new InternalFrameAdapter() {
